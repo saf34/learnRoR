@@ -12,7 +12,9 @@
 
   <div class="m-b-lg">
     <%= f.submit "Log in", class: "btn btn-primary" %>
-    <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-default" %><br />
+    <%= if devise_mapping.registerable? 
+      link_to "Sign up", new_registration_path(resource_name), class: "btn btn-default" 
+    end %>
   </div>
 
 <footer class="screen-login">
