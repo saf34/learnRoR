@@ -1,9 +1,19 @@
-<header>
-  <h1>Welcome to Gitarify!</h1>
-  <h2>This is a temporary land page using Rails <%= Rails.version %></h2>
-</header>
+<div class="container p-t-md">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render "userpanel" %>
+      <%= render "aboutpanel" %>
+      <%= render "photopanel" %>
+    </div>
 
-<section>
-  <p>Future Dashboard page.</p>
-  <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-</section>
+    <div class="col-md-6">
+      <%= render "timeline" %>
+    </div>
+
+    <div class="col-md-3">
+      <%= render "adpanel" %>
+      <%= render "likespanel" %>
+      <%= render "footerpanel" %>
+    </div>
+  </div>
+</div>

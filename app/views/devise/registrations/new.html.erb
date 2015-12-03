@@ -1,29 +1,31 @@
-<h2>Sign up</h2>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => 'm-x-auto text-center app-login-form'}) do |f| %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= link_to image_tag("brand.png"), root_url, :class=>"app-brand m-b-lg"%>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div class="form-group">
+    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Choose username" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
+  <div class="form-group m-b-md">
+      <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+
+    <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Choose password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+
+  <div class="form-group m-b-md">
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Re-enter password" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="m-b-lg">
+    <%= f.submit "Sign Up", class: "btn btn-primary" %>
   </div>
+
+<footer class="screen-login">
+  <%= render "devise/shared/links" %>
+</footer>
+
 <% end %>
-
-<%= render "devise/shared/links" %>
